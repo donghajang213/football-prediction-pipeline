@@ -1,0 +1,14 @@
+[project]
+name = "football-prediction-pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-cloud-bigquery>=3.42.0",
+    "pandas>=3.0.3",
+    "pandas-gbq>=0.35.0",
+    "pyarrow>=24.0.0",
+    "python-dotenv>=1.2.2",
+    "requests>=2.34.2",
+]
