@@ -14,4 +14,10 @@ data/
 models/
 *.pkl
 
+
+__pycache__/
+*.pyc
 .env
+.vscode/
+*.json
+
