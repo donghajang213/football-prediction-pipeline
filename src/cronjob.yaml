@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: football-prediction-cronjob
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: bq-sa   # <--- (추가) 새 신분증을 들고 실행하라는 뜻!
+          containers:
+          - name: pipeline-container
+            image: asia-northeast3-docker.pkg.dev/football-prediction-pipeline/football-repo/>
+            imagePullPolicy: Always
+            command: ["python", "-u", "src/loader.py"]
+            env:
+            - name: PYTHONPATH
+              value: "/app/src"
+            - name: FOOTBALL_DATA_API_KEY
+              value: 13735bb20f9d4c228efcab9ac513e0c1
+            - name: DISCORD_WEBHOOK_URL
+              value: https://discord.com/api/webhooks/1517036830078533793/eDuC44bjedZCPBgLWcm>
+          restartPolicy: OnFailure
