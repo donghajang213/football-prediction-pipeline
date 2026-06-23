@@ -16,10 +16,13 @@
 ## 💡 핵심 구현 사항
 
 ### 1. 데이터 파이프라인 및 시각화 (ETL / Data Mart)
-- `collector.py` & `transformer.py`: API 연동을 통해 매치 데이터를 추출하고 전반/풀타임 득점 데이터를 결합하여 국가별 '파워 지수' 파생 변수 생성.
+- `collector.py` & `transformer.py`: API 
+연동을 통해 매치 데이터를 추출하고 전반/풀타임 득점 데이터를 결합하여 국가별 '파워 지수' 파생 변수 생성.
 - K8s `CronJob`을 활용하여 매일 자정(KST) BigQuery에 최신 데이터 자동 갱신.
 - **[대시보드]** 수집된 데이터를 기반으로 실시간 랭킹 변동 및 득점 통계 시각화 완료.
   - [🔗 Looker Studio 대시보드 바로가기](https://datastudio.google.com/reporting/a800d198-88de-4704-8b72-507807603408)
+ 
+  - <img width="1908" height="801" alt="축구 데이터" src="https://github.com/user-attachments/assets/06e09ced-2900-400a-88d3-e7a41fc9c11c" />
 
 ### 2. 머신러닝 기반 경기 예측 (MLOps)
 - 과거 카타르 월드컵 데이터를 바탕으로 `기대득점(xG)`, `점유율`, `패스 성공률`, `유효슈팅`, `선방률` 등 5가지 핵심 스탯의 차이값(Diff)을 피처로 활용하여 ML 모델 학습 및 `.pkl` 직렬화.
