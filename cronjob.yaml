@@ -4,6 +4,7 @@ metadata:
   name: football-prediction-cronjob
 spec:
   schedule: "0 0 * * *"
+  timeZone: "Asia/Seoul"   # K8s CronJob 기본값은 UTC라, 이걸 안 주면 자정(KST)이 아니라 UTC 자정(=KST 오전 9시)에 돈다
   jobTemplate:
     spec:
       template:
