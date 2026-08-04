@@ -21,3 +21,6 @@ __pycache__/
 .vscode/
 *.json
 
+
+# K8s secret manifests - never commit real values
+k8s/secret.yaml
